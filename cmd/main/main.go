@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -9,7 +10,7 @@ import (
 )
 
 func main() {
-
+	fmt.Println("Successfully Connected..!")
 	router := mux.NewRouter()
 	routes.BasicCrudRoutes(router)
 

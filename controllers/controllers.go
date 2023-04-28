@@ -15,13 +15,13 @@ import (
 var students []models.Student
 
 // Get All Students
-func getStudents(w http.ResponseWriter, router *http.Request) {
+func GetStudents(w http.ResponseWriter, router *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(students)
 }
 
-// Get single book
-func getStudent(w http.ResponseWriter, router *http.Request) {
+// Get single student
+func GetStudent(w http.ResponseWriter, router *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(router)
 	// Gets params
@@ -34,7 +34,7 @@ func getStudent(w http.ResponseWriter, router *http.Request) {
 	}
 	json.NewEncoder(w).Encode(&models.Student{})
 }
-func createStudent(w http.ResponseWriter, router *http.Request) {
+func CreateStudent(w http.ResponseWriter, router *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	var student models.Student
 	utils.ParseBody(router, student)
@@ -45,8 +45,8 @@ func createStudent(w http.ResponseWriter, router *http.Request) {
 	json.NewEncoder(w).Encode(student)
 }
 
-// Update books
-func updateStudent(w http.ResponseWriter, router *http.Request) {
+// Update students
+func UpdateStudent(w http.ResponseWriter, router *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(router)
 	for index, item := range students {
@@ -62,8 +62,8 @@ func updateStudent(w http.ResponseWriter, router *http.Request) {
 	}
 }
 
-// Delete book
-func deleteStudent(w http.ResponseWriter, router *http.Request) {
+// Delete students
+func DeleteStudent(w http.ResponseWriter, router *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(router)
 	for index, item := range students {
